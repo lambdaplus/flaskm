@@ -1,10 +1,25 @@
-{% extends "bootstrap/base.html" %}
+<!DOCTYPE html>
+ {% extends "bootstrap/base.html" %}
+<html>
 
-{% block title %} My Flask Practice {% endblock %}
-{% block content %} {% endblock %}
+<head>
+    <meta charset="utf-8"> {% block title %} Flask {% endblock %}
+</head>
 
-{% block footer %}
-Hi, I'm a footer!
-{% endblock %}
+<body>
+    <div id="content">
+        {% block content %} {% endblock %}
+    </div>
 
-{% block navbar %} {{nav.mynavbar.render()}} {% endblock %}
+    <div id="footer">
+      <div class="navbar navbar-fixed-bottom">
+        <div class="container">
+          Copyright lambdaplus.github.io
+        </div>
+      </div>
+    </div>
+
+    {% block navbar %} {{nav.mynavbar.render()}} {% endblock %}
+</body>
+
+</html>

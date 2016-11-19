@@ -1,8 +1,20 @@
 {% extends "base.html" %}
+{% block title %}
+  about
+{% endblock %}
 
 {% block content %}
-  <img src="{{ infos.img }}" alt="" />
-  <h2>{{ infos.name }}</h2>
-  <h4>{{ infos.score }}</h4>
-  <h3>{{ infos.quote }}</h3>
+<div class="text-center">
+  <h1>电影的基本信息</h1>
+</div>
+<div class="center-block">
+    {% for info in infos %}
+    <p class="text-center"><img src="{{ info.img }}" class="img-responsive center-block" alt="Responsive image"></p>
+    <p class="text-center">电影名: <strong>{{ info.name }}</strong></p>
+    <p class="text-center">评分: <strong>{{ info.score }}</strong></p>
+    <p class="text-center">概括: <strong>{{ info.quote }}</strong></p>
+    </br>
+    {% endfor %}
+</div>
+
 {% endblock %}

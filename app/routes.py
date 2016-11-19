@@ -16,7 +16,7 @@ def mynavbar():
     return Navbar(
         '小窝',
         View('Home', 'index'),
-        View('about me', 'about'),
+        View('About', 'about')
     )
 
 
@@ -26,7 +26,7 @@ def about():
     client = MongoClient('localhost', 27017)
     db = client.movies
     coll = db.coll
-    infos = coll.find_one({'name': '霸王别姬'})
+    infos = coll.find()  # one({"name": "霸王别姬"})
     return render_template('about.html', infos=infos)
 
 
@@ -35,9 +35,5 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/hello/<name>')
-def hello(name):
-    return render_template('hello.html', name=name)
-
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host="0.0.0.0", debug=True)
